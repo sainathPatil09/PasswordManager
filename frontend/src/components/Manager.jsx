@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { v4 as uuidv4 } from "uuid";
 
@@ -37,16 +37,17 @@ const Manager = () => {
 
   const copyText = (text) => {
     // alert("copid to clipbord" + text)
-    toast("🦄 Copied to clipbord", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    // toast("🦄 Copied to clipbord", {
+    //   position: "top-right",
+    //   autoClose: 5000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "light",
+    // });
+    alert("Copied to clipboard: ");
     navigator.clipboard.writeText(text);
   };
 
@@ -72,16 +73,17 @@ const Manager = () => {
       // console.log([...passwordArray, form])
       setForm(initialState);
 
-      toast("🦄 Password saved", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      // toast("🦄 Password saved", {
+      //   position: "top-right",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      // });
+      alert("Password saved successfully");
     } else {
       toast("Error : Password not saved");
     }
@@ -98,16 +100,17 @@ const Manager = () => {
       });
       // localStorage.setItem("password", JSON.stringify(passwordArray.filter(item=>item.id !== id)))
 
-      toast("🦄 Password Deleted", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      // toast("🦄 Password Deleted", {
+      //   position: "top-right",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      //   theme: "light",
+      // });
+      alert("Password deleted successfully");
     }
     // console.log([...passwordArray, form])
   };
@@ -125,7 +128,7 @@ const Manager = () => {
 
   return (
     <>
-      <ToastContainer
+      {/* <ToastContainer
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -137,9 +140,9 @@ const Manager = () => {
         pauseOnHover
         theme="light"
         transition="Bounce"
-      />
+      /> */}
       {/* Same as */}
-      <ToastContainer />
+      {/* <ToastContainer /> */}
 
       {/* <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div> */}
 

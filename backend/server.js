@@ -23,7 +23,22 @@ app.use(bodyparser.json())
 app.use(cors())
 client.connect();
 
+async function connectDB() {
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+  }
+}
+
+connectDB()
+
 //Get all passwords
+
+app.get('/api', (req, res) => {
+  res.send('Hello World!')
+})
 
 app.get('/api', async(req, res) => {
   const db = client.db(dbName);
