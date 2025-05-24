@@ -1,23 +1,18 @@
-FROM node:21 AS frontend-builder
+# Stage 1: Build Stage
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
-COPY package*.json .
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
-RUN npm ci
+# Install dependencies
+RUN npm install
 
+# Copy the rest of the frontend code
 COPY . .
 
-# stage 2
+# Build the app (dist folder will be created)
+RUN npm run build
 
-FROM node:21-slim
-
-WORKDIR /app
-
-COPY --from=frontend-builder /app .
-
-COPY . .
-
-EXPOSE 5173
-
-CMD ["npm", "run", "dev", "--", "--host"]
+# Final image is not needed — output is used by nginx container through volume

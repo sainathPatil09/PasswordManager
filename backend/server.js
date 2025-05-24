@@ -11,7 +11,9 @@ dotenv.config()
 
 // Connection URL
 const url = process.env.MONGO_URI;
+console.log(url)
 const client = new MongoClient(url);
+// console.log(client)
 
 // Database Name
 const dbName = 'passop';
@@ -23,7 +25,7 @@ client.connect();
 
 //Get all passwords
 
-app.get('/', async(req, res) => {
+app.get('/api', async(req, res) => {
   const db = client.db(dbName);
   const collection = db.collection('passwords');
   const findResult = await collection.find({}).toArray();
@@ -32,7 +34,7 @@ app.get('/', async(req, res) => {
 
 
 //save password
-app.post('/', async(req, res) => {
+app.post('/api', async(req, res) => {
   const password = req.body
   const db = client.db(dbName);
   const collection = db.collection('passwords');
@@ -41,7 +43,7 @@ app.post('/', async(req, res) => {
 })
 
 //delete password
-app.delete('/', async(req, res) => {
+app.delete('/api', async(req, res) => {
   const password = req.body
   const db = client.db(dbName);
   const collection = db.collection('passwords');
