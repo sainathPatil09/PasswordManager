@@ -64,7 +64,7 @@ const Manager = () => {
       form.username.length > 3
     ) {
       await fetch(`${apiUrl}/api`, {
-        method: "DELETE",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: form.id }),
       });
