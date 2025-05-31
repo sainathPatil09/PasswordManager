@@ -5,11 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { v4 as uuidv4 } from "uuid";
 
 const Manager = () => {
-  let apiUrl = "";
   const envType = import.meta.env.VITE_REACT_APP_ENV_TYPE;
-  if(envType == "Development"){
-    apiUrl=import.meta.env.VITE_REACT_APP_API_URL;
-  }
+  const apiUrl = envType === "Production" ? import.meta.env.VITE_REACT_APP_API_URL : "http://localhost:3000";
+  
   console.log(apiUrl)
   const ref = useRef();
   const passwordRef = useRef();

@@ -29,6 +29,7 @@ services:
         dockerfile: dockerfile
       environment:
         VITE_REACT_APP_API_URL: http://backend:3000
+        VITE_REACT_APP_ENV_TYPE: Production
       volumes:
       - frontend-build:/shared
       depends_on:
