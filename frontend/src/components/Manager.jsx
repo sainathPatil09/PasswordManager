@@ -6,7 +6,8 @@ import { v4 as uuidv4 } from "uuid";
 
 const Manager = () => {
   const envType = import.meta.env.VITE_REACT_APP_ENV_TYPE;
-  const apiUrl = envType === "Production" ? import.meta.env.VITE_REACT_APP_API_URL : "http://localhost:3000";
+  console.log(envType)
+  const apiUrl = envType == "Production" ? import.meta.env.VITE_REACT_APP_API_URL : "http://localhost:3000";
   
   console.log(apiUrl)
   const ref = useRef();
