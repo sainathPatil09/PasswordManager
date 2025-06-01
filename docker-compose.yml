@@ -14,7 +14,7 @@ services:
 
   backend:
     container_name: backend
-    image: wiings/passopbackend:latest
+    image: wiings09/passopbackend:latest
     environment:
       MONGO_URI: mongodb://mongo:27017/passop
     depends_on:
