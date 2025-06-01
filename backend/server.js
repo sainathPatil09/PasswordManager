@@ -36,14 +36,16 @@ connectDB()
 
 //Get all passwords
 
-app.get('/api', (req, res) => {
-  res.send('Hello World!')
-})
+// app.get('/api', (req, res) => {
+//   res.send('Hello World!')
+// })
 
 app.get('/api', async(req, res) => {
   const db = client.db(dbName);
   const collection = db.collection('passwords');
   const findResult = await collection.find({}).toArray();
+  // console.log(findResult)
+  console.log("fetching passwords")
   res.json(findResult)
 })
 

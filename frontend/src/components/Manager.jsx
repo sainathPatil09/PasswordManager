@@ -27,6 +27,7 @@ const Manager = () => {
 
   useEffect(() => {
     getPasswords();
+    console.log("Calling--")
   }, []);
 
   const handletoogleEye = () => {
@@ -64,7 +65,7 @@ const Manager = () => {
       form.username.length > 3
     ) {
       await fetch(`${apiUrl}/api`, {
-        method: "POST",
+        method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: form.id }),
       });
