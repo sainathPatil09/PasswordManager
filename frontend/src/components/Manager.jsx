@@ -64,14 +64,14 @@ const Manager = () => {
       form.password.length > 3 &&
       form.username.length > 3
     ) {
-      await fetch(`${apiUrl}/api`, {
+      await fetch(`/api`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: form.id }),
       });
 
       setPasswordArray([...passwordArray, { ...form, id: uuidv4() }]);
-      await fetch(`${apiUrl}/api`, {
+      await fetch(`/api`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, id: uuidv4() }),
@@ -100,7 +100,7 @@ const Manager = () => {
     if (confirm("Are you sure want to delete password") === true) {
       console.log("deleting password" + id);
       setPasswordArray(passwordArray.filter((item) => item.id !== id));
-      let res = await fetch(`${apiUrl}/api`, {
+      let res = await fetch(`/api`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id }),
