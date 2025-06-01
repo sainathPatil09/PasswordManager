@@ -19,7 +19,7 @@ const Manager = () => {
   const [passwordArray, setPasswordArray] = useState([]);
 
   const getPasswords = async () => {
-    let req = await fetch(`${apiUrl}/api`);
+    let req = await fetch(`/api`);
     let passwords = await req.json();
     console.log(passwords);
     setPasswordArray(passwords);
